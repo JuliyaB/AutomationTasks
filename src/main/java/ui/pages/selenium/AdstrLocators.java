@@ -27,12 +27,12 @@ public abstract class AdstrLocators {
 
     abstract void clickSection();
 
-    public void inputPriceTo(String price) {
-        priceTo.sendKeys(price);
-    }
-
     public void inputPriceFrom(String price) {
         priceFrom.sendKeys(price);
+    }
+
+    public void inputPriceTo(String price) {
+        priceTo.sendKeys(price);
     }
 
     abstract void clickManufacturer();

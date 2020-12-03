@@ -16,14 +16,11 @@ public class PageTwo extends AdstrLocators{
     @FindBy(linkText = "Планшеты")
     private WebElement btnTablets;
 
-    @FindBy(xpath = "//div[@id='search-prepack']//*[contains(text(),'Acer')]")
-    private WebElement btnAcer;
+    @FindBy(xpath = "//div[@id='search-prepack']//*[contains(text(),'HUAWEI')]")
+    private WebElement btnHUAWEI;
 
-    @FindBy(xpath = "//div[@id='search-prepack']//*[contains(text(),'DELL')]")
-    private WebElement btnDELL;
-
-    @FindBy(xpath = "//*[contains(text(),'Показать всё')]")
-    private WebElement btnShowAll;
+    @FindBy(xpath = "//div[@id='search-prepack']//*[contains(text(),'Samsung')]")
+    private WebElement btnSamsung;
 
     @Override
     public void clickSection(){
@@ -32,10 +29,7 @@ public class PageTwo extends AdstrLocators{
 
     @Override
     public void clickManufacturer() {
-        btnDELL.click();
-    }
-
-    public void clickShowAll() {
-        btnShowAll.click();
+        btnHUAWEI.click();
+        btnSamsung.click();
     }
 }

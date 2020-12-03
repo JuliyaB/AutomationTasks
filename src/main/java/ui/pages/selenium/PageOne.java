@@ -23,7 +23,7 @@ public class PageOne extends AdstrLocators {
     private WebElement btnLenovo;
 
     @Override
-    public void clickSection(){
+    public void clickSection() {
         btnLaptops.click();
     }
 
