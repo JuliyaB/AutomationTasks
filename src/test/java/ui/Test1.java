@@ -1,38 +1,48 @@
 package ui;
 
 import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import ui.pages.selenium.PageOne;
-import util.ConfProperties;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-public class Test1 {
-    public static PageOne pageOne;
-    public static WebDriver driver;
-
-    @BeforeAll
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
-        driver = new ChromeDriver();
-        pageOne = new PageOne(driver);
-        driver.get(ConfProperties.getProperty("yandex"));
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
+public class Test1 extends WebDriverSetup {
 
     @Test
-    public void test1() {
+    public void test1() throws InterruptedException {
+
         pageOne.clickBtnMarket();
+
+        for (String winHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(winHandle);
+        }
+
         pageOne.clickBtnComputers();
         pageOne.clickSection();
         pageOne.inputPriceTo("30000");
         pageOne.clickManufacturer();
+        assertTrue(12 <= driver.findElements(By.tagName("article")).size());
+        Thread.sleep(3000);
+        countP();
     }
 
+    void countP(){
+        List<WebElement> results = driver.findElements(By.xpath("//*[@class='_3dCGE8Y9v3 cLo1fZHm2y']//a['title']"));
+        int count = 0;
+        int i = 0;
+        for (WebElement element : results) {
+            if (i != 12) {
+                if (element.getText().contains("HP") || element.getText().contains("Lenovo")) {
+                    count++;
+                }
+            } else {
+                break;
+            }
+            i++;
+        }
+        System.out.println(count);
+    }
 
 }

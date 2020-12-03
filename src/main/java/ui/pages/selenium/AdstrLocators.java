@@ -11,10 +11,10 @@ public abstract class AdstrLocators {
     @FindBy(xpath = "//*[contains(text(),'Компьютеры')]")
     private WebElement btnComputers;
 
-    @FindBy(linkText = "от")
+    @FindBy(id = "glpricefrom")
     private WebElement priceFrom;
 
-    @FindBy(linkText = "Цена, ₽ до")
+    @FindBy(id = "glpriceto")
     private WebElement priceTo;
 
     public void clickBtnMarket() {

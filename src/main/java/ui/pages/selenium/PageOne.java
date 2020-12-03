@@ -16,10 +16,10 @@ public class PageOne extends AdstrLocators {
     @FindBy(linkText = "Ноутбуки")
     private WebElement btnLaptops;
 
-    @FindBy(linkText = "HP")
+    @FindBy(xpath = "//div[@id='search-prepack']//*[contains(text(),'HP')]")
     private WebElement btnHP;
 
-    @FindBy(linkText = "Lenovo")
+    @FindBy(xpath = "//div[@id='search-prepack']//*[contains(text(),'Lenovo')]")
     private WebElement btnLenovo;
 
     @Override
