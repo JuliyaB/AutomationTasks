@@ -18,7 +18,7 @@ public class CheckManufacturerRange extends BaseMarketTest {
         marketPage.selectManufacturer(Manufacturer.HUAWEI.getManufacturer());
         marketPage.selectManufacturer(Manufacturer.Samsung.getManufacturer());
         //Нет кнопки "Применить"
-        driver.get(driver.getCurrentUrl());
+        marketPage.siteWait();
         //На странице всегда разное количество товаров, поэтому я получаю текущее количество товаров и промеряю что оно не пустое
         assertTrue(0 < marketPage.getNumberOfElements());
         assertTrue(marketPage.priceRange());

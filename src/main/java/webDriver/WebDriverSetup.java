@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class WebDriverSetup {
     public static MarketPage marketPage;
     public static WebDriver driver;
-    public static List<WebElement> results;
+    public List<WebElement> results;
 
     public void setup() {
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));

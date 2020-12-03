@@ -8,7 +8,6 @@ import webDriver.WebDriverSetup;
 
 public abstract class BasePage extends WebDriverSetup {
 
-
     @FindBy(xpath = "//*[contains(text(),'Маркет')]")
     private WebElement btnMarket;
 

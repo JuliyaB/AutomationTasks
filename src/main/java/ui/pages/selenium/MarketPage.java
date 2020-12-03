@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MarketPage extends BasePage {
-    static WebDriver driver;
+    WebDriver driver;
 
     public MarketPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -35,11 +35,15 @@ public class MarketPage extends BasePage {
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='search-prepack']//*[contains(text(),'" + name + "')]"))).click();
     }
 
-    public static int getNumberOfElements() {
+    public int getNumberOfElements() {
         return driver.findElements(By.tagName("article")).size();
     }
 
-    public static int checkingTheFirst12() {
+    public void siteWait() {
+        driver.get(driver.getCurrentUrl());
+    }
+
+    public int checkingTheFirst12() {
         results = driver.findElements(By.xpath("//*[@data-zone-name='SearchResults']//h3['title']"));
         int count = 0;
         int i = 0;
@@ -56,7 +60,7 @@ public class MarketPage extends BasePage {
         return count;
     }
 
-    public static boolean priceRange() {
+    public boolean priceRange() {
         results = driver.findElements(By.xpath("//*[@data-zone-name='price']//*[@href]//span//span[1]"));
         for (WebElement element : results) {
             if (20000 > Integer.parseInt(element.getText().replaceAll("\\s+", "")) &&

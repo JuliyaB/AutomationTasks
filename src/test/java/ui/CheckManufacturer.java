@@ -2,7 +2,6 @@ package ui;
 
 import enums.Manufacturer;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -18,9 +17,9 @@ public class CheckManufacturer extends BaseMarketTest {
         marketPage.selectManufacturer(Manufacturer.HP.getManufacturer());
         marketPage.selectManufacturer(Manufacturer.Lenovo.getManufacturer());
         //Нет кнопки "Применить"
-        driver.get(driver.getCurrentUrl());
+        marketPage.siteWait();
         //Выдается больше 12
-        assertTrue(12 <= driver.findElements(By.tagName("article")).size());
+        assertTrue(12 <= marketPage.getNumberOfElements());
         assertEquals(12, marketPage.checkingTheFirst12());
     }
 
